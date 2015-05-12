@@ -1,4 +1,5 @@
-#include "Vector.hpp"
+#include "ASVector.hpp"
+#include <assert.h>
 #include "GenericVectorOperations.hpp"
 
 void registerVector2f(asIScriptEngine* engine);
@@ -86,9 +87,13 @@ void registerVector2f(asIScriptEngine *engine)
                                         asFUNCTION(vectorIsEqual_gen<ASVector2f>), asCALL_GENERIC); assert(r >= 0);
     // Getters & Setters
     r = engine->RegisterObjectMethod   ("CVector2f", "float& x()",
-                                        asFUNCTION(getCoord_gen<0>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector2f, 0>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector2f", "float& y()",
-                                        asFUNCTION(getCoord_gen<1>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector2f, 1>)), asCALL_GENERIC); assert(r >= 0);
+    r = engine->RegisterObjectMethod   ("CVector2f", "float& s()",
+                                        asFUNCTION((getCoord_gen<ASVector2f, 0>)), asCALL_GENERIC); assert(r >= 0);
+    r = engine->RegisterObjectMethod   ("CVector2f", "float& t()",
+                                        asFUNCTION((getCoord_gen<ASVector2f, 1>)), asCALL_GENERIC); assert(r >= 0);
     // API Functions
     r = engine->RegisterObjectMethod   ("CVector2f", "void normalize()",
                                         asFUNCTION(normalizeVec_gen<ASVector2f>), asCALL_GENERIC); assert(r >= 0);
@@ -161,11 +166,11 @@ void registerVector3f(asIScriptEngine *engine)
                                         asFUNCTION(vectorIsEqual_gen<ASVector3f>), asCALL_GENERIC); assert(r >= 0);
     // Getters & Setters
     r = engine->RegisterObjectMethod   ("CVector3f", "float& x()",
-                                        asFUNCTION(getCoord_gen<0>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector3f, 0>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector3f", "float& y()",
-                                        asFUNCTION(getCoord_gen<1>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector3f, 1>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector3f", "float& z()",
-                                        asFUNCTION(getCoord_gen<2>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector3f, 2>)), asCALL_GENERIC); assert(r >= 0);
     // API Functions
     r = engine->RegisterObjectMethod   ("CVector3f", "void normalize()",
                                         asFUNCTION(normalizeVec_gen<ASVector3f>), asCALL_GENERIC); assert(r >= 0);
@@ -238,13 +243,13 @@ void registerVector4f(asIScriptEngine *engine)
                                         asFUNCTION(vectorIsEqual_gen<ASVector4f>), asCALL_GENERIC); assert(r >= 0);
     // Getters & Setters
     r = engine->RegisterObjectMethod   ("CVector4f", "float& x()",
-                                        asFUNCTION(getCoord_gen<0>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector4f, 0>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector4f", "float& y()",
-                                        asFUNCTION(getCoord_gen<1>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector4f, 1>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector4f", "float& z()",
-                                        asFUNCTION(getCoord_gen<2>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector4f, 2>)), asCALL_GENERIC); assert(r >= 0);
     r = engine->RegisterObjectMethod   ("CVector4f", "float& w()",
-                                        asFUNCTION(getCoord_gen<3>), asCALL_GENERIC); assert(r >= 0);
+                                        asFUNCTION((getCoord_gen<ASVector4f, 3>)), asCALL_GENERIC); assert(r >= 0);
     // API Functions
     r = engine->RegisterObjectMethod   ("CVector4f", "void normalize()",
                                         asFUNCTION(normalizeVec_gen<ASVector4f>), asCALL_GENERIC); assert(r >= 0);

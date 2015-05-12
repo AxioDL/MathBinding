@@ -1,8 +1,10 @@
 INCLUDEPATH += $$PWD
 
+!contains(DEFINS, ZE_MATH_BINDING):DEFINES += ZE_MATH_BINDING
+
 HEADERS += \
-    $$PWD/Vector.hpp \
-    $$PWD/GenericVectorOperations.hpp
+    $$PWD/GenericVectorOperations.hpp \
+    $$PWD/ASVector.hpp
 
 SOURCES += \
-    $$PWD/Vector.cpp
+    $$PWD/ASVector.cpp

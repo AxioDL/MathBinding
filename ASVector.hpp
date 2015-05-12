@@ -1,9 +1,10 @@
-#ifndef VECTOR_HPP
-#define VECTOR_HPP
-#include <CVector2f.hpp>
-#include <CVector3f.hpp>
-#include <CVector4f.hpp>
+#ifndef ASVECTOR_HPP
+#define ASVECTOR_HPP
+
 #include <angelscript.h>
+class CVector2f;
+class CVector3f;
+class CVector4f;
 
 template <class T>
 class ASVector
@@ -176,7 +177,7 @@ public:
 
     static float getAngleDiff(const ASVector& a, const ASVector& b)
     {
-        return CVector2f::getAngleDiff(*a.d, *b.d);
+        return T::getAngleDiff(*a.d, *b.d);
     }
 
     static inline ASVector lerp(const ASVector& a, const ASVector& b, float t)

@@ -1,4 +1,7 @@
 #include <angelscript.h>
+#include <CVector2f.hpp>
+#include <CVector3f.hpp>
+#include <CVector4f.hpp>
 
 template <class T>
 void constructVector_gen(asIScriptGeneric* gen)
@@ -167,10 +170,10 @@ void divVectorFloat_r_gen(asIScriptGeneric* gen)
     gen->SetReturnObject(lhs);
 }
 
-template <int index>
+template <class T, int index>
 static void getCoord_gen(asIScriptGeneric* gen)
 {
-    ASVector2f* lhs = static_cast<ASVector2f*>(gen->GetObject());
+    T* lhs = static_cast<T*>(gen->GetObject());
     float& x = (*lhs)[index];
     gen->SetReturnAddress(&x);
 }
